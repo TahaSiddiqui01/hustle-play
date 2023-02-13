@@ -1,0 +1,31 @@
+.light-heading {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 4px 0px;
+}
+
+.gray-color {
+  color: gray;
+}
+
+.sponsorCard {
+  transition: all 0.5s ease;
+}
+
+.sponsorCard:hover {
+  transform: scale(1.1);
+}
+
+.sponsorcardleft {
+  width: 40%;
+  min-width: 320px;
+}
+
+@media screen and (max-width: 1000px) {
+  .sponsorCard {
+    flex-direction: column;
+  }
+  .sponsorCardImage {
+    margin: auto !important;
+  }
+}

@@ -1,0 +1,81 @@
+.event-section-one {
+  background-image: url(https://lpgpconnect.com/wp-content/uploads/2021/11/Untitled-5.jpg);
+}
+
+.event-detail-right {
+  width: 35%;
+  min-width: 250px;
+}
+
+.event-detail-right p {
+  font-size: 18px;
+}
+
+.gray-text {
+  color: #5e5e5e;
+}
+
+.gray-text-bold {
+  color: #5e5e5e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.register-btn {
+  background: black;
+  color: white;
+  border-radius: 8px;
+  width: 200px;
+  padding: 12px;
+  font-size: 22px;
+}
+
+.time-bold {
+  font-size: 38px;
+  font-weight: 400;
+  margin: 4px 8px;
+}
+
+.time-light {
+  font-size: 12px;
+  color: #646464;
+}
+
+.section-event-two {
+}
+
+.sub-heading {
+  font-size: 36px;
+  color: #303030;
+  font-weight: bolder;
+  line-height: 44px;
+}
+
+@media screen and (max-width: 922px) {
+  .event-detail-right {
+    width: auto;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .event-image {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .event-image {
+    width: 285px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .event-image {
+    width: 220px;
+  }
+
+  .sub-heading{
+    font-size: 28px;
+  }
+}

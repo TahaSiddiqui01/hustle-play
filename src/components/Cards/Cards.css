@@ -1,0 +1,90 @@
+.card-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 15px 5px;
+  border-radius: 16px;
+  max-width: 367px;
+  width: 100%;
+  padding: 19px;
+  min-width: 280px;
+}
+
+.image-badg-btn {
+  position: relative;
+  padding: 5px 20px 5px 20px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px 0px 15px 10px;
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 30%);
+  top: -52px;
+  left: 2px;
+  border: none;
+  background-color: #03aad6;
+}
+
+.card-img {
+  /* position: absolute; */
+  width: 100%;
+}
+
+.card-head {
+  height: 220px;
+}
+
+.small-sub-heading {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.card-body-btn {
+  width: 100%;
+  margin: 5px;
+  border-radius: 8px;
+  padding: 14px 8px;
+  border: none;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 15px 5px;
+}
+
+.slick-slide {
+  width: auto I !important;
+}
+
+.slick-next {
+  display: none !important;
+  right: -25px !important;
+}
+
+/* the slides */
+/* .slick-slide {
+  margin: 0 4px;
+} */
+
+/* the parent */
+.slick-list {
+  margin: 0 -8px;
+}
+
+@media screen and (max-width: 992px) {
+  
+  .card-container{
+    width: 330px;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .allEventsContainer{
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  
+  .card-container{
+    width: 250px;
+  }
+}

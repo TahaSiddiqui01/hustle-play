@@ -1,0 +1,34 @@
+.spekaer-btn{
+    background-color: black;
+    font-size: 14px;
+    border-radius: 8px;
+    color: white;
+    padding: 8px;
+}
+
+
+.speaker-heading{
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.speaker-light-heading{
+    font-size: 12px;
+
+}
+
+.speaker-card{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 380px;
+    padding: 24px 14px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 367px) {
+
+    .speaker-img{
+        width: 100%;
+    }
+    
+}

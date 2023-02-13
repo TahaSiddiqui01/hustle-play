@@ -1,0 +1,56 @@
+.testimonials {
+  background-image: url("https://lpgpconnect.com/wp-content/uploads/2021/11/x2.jpg");
+  background-attachment: fixed;
+}
+
+.testimonials-text {
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  margin: 12px 5px;
+  height: fit-content;
+}
+
+.swiper-slide-active {
+  height: fit-content;
+}
+
+.swiper-slide-active {
+  height: 121px;
+}
+
+.swiper {
+  height: fit-content;
+  color: white;
+  width: 100%;
+}
+
+.swiper-pagination {
+  position: static !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white;
+}
+
+
+@media screen and (max-width: 730px) {
+    .testimonials-text{
+        font-size: 15px;
+    }
+
+    .testimonials-image{
+        width: 160px;
+    }
+    
+}
+
+@media screen and (max-width: 430px) {
+
+    .sub-heading{
+        line-height: 24px;
+        text-align: center;
+    }
+    
+}

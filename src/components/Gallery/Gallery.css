@@ -1,0 +1,67 @@
+.gallery-back {
+  background-color: #212121;
+}
+
+.gallery-image-container {
+  padding: 8px;
+  background-color: white;
+  width: 270px;
+  box-sizing: border-box;
+}
+.gallery-heading {
+  padding-top: 88px;
+  padding-bottom: 78px;
+}
+.my_card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.my_card_img {
+  width: 100%;
+  min-width: 250px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.icon-div {
+  transition: all 1s;
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  transform: translate(-100px, 10px);
+}
+.my_card:hover .icon-div {
+  cursor: pointer;
+  display: flex;
+  transform: translate(0px, 10px);
+}
+.my_card:hover .my_card_img {
+  filter: brightness(0.5);
+}
+.icon-div i {
+  color: #fff;
+  fill: #fff;
+}
+@media screen and (max-width: 636px) {
+  .gallery-image-container {
+    width: 250px;
+  }
+
+  .gallery-image-container img {
+    min-width: 230px;
+  }
+}
+
+@media screen and (max-width: 596px) {
+  .gallery-img-parent {
+    justify-content: center !important;
+  }
+}

@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+* {
+  /* font-family: "Open Sans", sans-serif; */
+}
+
+.black-bold-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.buttons_added {
+  width: 50px;
+  display: flex;
+}
+
+.table-body {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  margin-top: 8px;
+}
+
+.semi-light-bold {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.anchor-tag {
+  text-decoration: underline;
+  color: #1ebbf0;
+}
+
+.addToCartBtn {
+  display: block;
+  color: white !important;
+  background-color: aquamarine;
+
+  color: var(--the7-btn-color);
+  background: var(
+    --the7-btn-bg,
+    transparent linear-gradient(135deg, #1ebbf0 30%, #39dfaa 100%)
+  );
+
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.shareBrand {
+  padding: 8px;
+  margin: 2px;
+  opacity: 100%;
+}
+
+.shareBrand:nth-child(1) {
+  border: 1px solid #bfebf9;
+  color: #bfebf9;
+}
+
+.shareBrand:nth-child(2) {
+  border: 1px solid #c9d2ee;
+  color: #c9d2ee;
+}
+
+.shareBrand:nth-child(3) {
+  border: 1px solid #f1bec2;
+  color: #f1bec2;
+}
+
+.shareBrand:nth-child(4) {
+  border: 1px solid #b2d7ee;
+  color: #b2d7ee;
+}
+
+.event-detail {
+  color: #333333;
+  font-size: large;
+}
+
+
+@media screen and (max-width: 992px) {
+    
+    .register-container{
+        flex-direction: column;
+    }
+
+    
+}
