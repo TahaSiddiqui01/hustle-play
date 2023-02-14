@@ -7,8 +7,12 @@ import Sponsor from "../Sponsor/Sponsor";
 import Register from "../Register/Register";
 import Venue from "../Venue/Venue";
 import SpeakerCard from "../SpeakerCard/SpeakerCard";
+import { BsFillPersonFill } from "react-icons/bs";
+import { AiFillStar } from "react-icons/ai";
+import { GrNote } from "react-icons/gr";
+import { MdLocationOn } from "react-icons/md";
 
-function EventsTab() {
+function EventsTab(props) {
   const allData = ["a", "b", "b", "b", "b", "b", "b", "b", "b"];
 
   return (
@@ -20,9 +24,10 @@ function EventsTab() {
             minWidth={"120px"}
             alignItems={"center"}
             width={"25%"}
+            color={"gray"}
           >
             <Box mx={"2"} as="span">
-              😚
+              <BsFillPersonFill className="tab-icons" />
             </Box>
             Speakers
           </Tab>
@@ -31,9 +36,10 @@ function EventsTab() {
             minWidth={"120px"}
             alignItems={"center"}
             width={"25%"}
+            color={"gray"}
           >
             <Box mx={"2"} as="span">
-              😚
+              <AiFillStar className="tab-icons" />
             </Box>
             Sponsors
           </Tab>
@@ -42,9 +48,10 @@ function EventsTab() {
             minWidth={"120px"}
             alignItems={"center"}
             width={"25%"}
+            color={"gray"}
           >
             <Box mx={"2"} as="span">
-              😚
+              <GrNote className="reg-icon" />
             </Box>
             Register
           </Tab>
@@ -53,9 +60,10 @@ function EventsTab() {
             minWidth={"120px"}
             alignItems={"center"}
             width={"25%"}
+            color={"gray"}
           >
             <Box mx={"2"} as="span">
-              😚
+              <MdLocationOn className="tab-icons" />
             </Box>
             Venue
           </Tab>
@@ -64,21 +72,24 @@ function EventsTab() {
         <TabPanels>
           <TabPanel>
             <div className="row gap-5">
-              {allData?.map((elem) => {
-                return <SpeakerCard/>
+              {props?.eventData?.speakers?.map((elem) => {
+                return <SpeakerCard elem={elem} />;
               })}
             </div>
           </TabPanel>
           <TabPanel>
-            <Sponsor />
-            <Sponsor />
-            <Sponsor />
+            {props?.eventData?.sponsors?.map((elem) => {
+              return <Sponsor elem={elem} />;
+            })}
           </TabPanel>
           <TabPanel>
             <Register />
           </TabPanel>
           <TabPanel>
-            <Venue />
+            <Venue
+              locationHeader={props?.eventData?.location_header}
+              locationDetail={props?.eventData?.location_detail}
+            />
           </TabPanel>
         </TabPanels>
       </Tabs>

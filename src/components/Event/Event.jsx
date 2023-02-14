@@ -7,10 +7,30 @@ import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+const BASE_URL = "http://nofi.pythonanywhere.com";
 
 function Event() {
   const [modalShow, setModalShow] = React.useState(false);
+  const [eventDetail, setEventDetail] = useState({});
+
   const { id } = useParams();
+
+  const [allEventData, setAllEventData] = useState({});
+
+  const fetchData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/event-detail/${id}`);
+
+      console.log("EventData", response?.data);
+      setAllEventData(response?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -18,14 +38,12 @@ function Event() {
         <NavbarCompo />
 
         <div className="mx-3  home-top-text-container d-flex  align-items-center flex-column">
-          <p className="clr-white text-heading">LPGP CONNECT</p>
+          <p className="clr-white text-heading">{allEventData?.title}</p>
           <p
             style={{ fontSize: "22px", letterSpacing: "3px" }}
             className="clr-white text-center text-paragraph"
           >
-            We specialize in hosting industry leading events in the Global
-            Private Debt & Equity Markets. Our conferences brings together
-            senior level decision makers to drive the industry forward.{" "}
+            {allEventData?.subtitle}{" "}
           </p>
           <button className="nav-btn">View Upcoming Conference</button>
         </div>
@@ -39,27 +57,24 @@ function Event() {
           className="d-flex flex-wrap justify-content-center"
         >
           <img
-            src="https://lpgpconnect.com/wp-content/uploads/2021/11/5.png"
+            src={allEventData?.main_image}
             alt=""
+            height={450}
+            width={450}
+            style={{borderRadius:"16px"}}
             className="mx-5 my-2 event-image"
           />
 
           <div className="d-flex event-detail-right flex-column">
             <h2 className="text-center sub-heading mb-5">
-              9th Annual Private Debt New York
+              {allEventData?.title}
             </h2>
-            <p className="gray-text">
+            {/* <p className="gray-text">
               LPGP Connect Private Debt New York brings together LPs and GPs
               from the global private credit market to look at the latest
               developments and market trends. Now in its 9
-            </p>
-            <p className="gray-text">
-              The conference agenda has been designed to give investors an in
-              depth look at the most up to date issues and concerns for
-              investment groups who currently invest in the asset class and
-              those that are looking to learn more and navigate the many
-              opportunities on offer.
-            </p>
+            </p> */}
+            <p className="gray-text">{allEventData?.description}</p>
             <div className="gray-text-bold text-center my-4">
               Conference will sart in
             </div>
@@ -83,7 +98,7 @@ function Event() {
       </section>
 
       <section className="section-event-two">
-        <EventsTab />
+        <EventsTab eventData={allEventData} />
       </section>
 
       <section className="mt-5">

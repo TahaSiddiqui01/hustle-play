@@ -4,8 +4,11 @@ import { BsFacebook, BsLinkedin, BsPinterest } from "react-icons/bs";
 import "./Register.css";
 import { Table } from "react-bootstrap";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Register() {
+  const { id } = useParams();
+
   const [specificEventState, setSpecificEventState] = useState({});
   const specificEvent = async () => {
     try {
@@ -26,16 +29,18 @@ function Register() {
 
   return (
     <>
-      <div className="d-flex register-container justify-content-between ">
+      <div className="d-flex register-container  ">
         <img
-          src="https://lpgpconnect.com/wp-content/uploads/2022/10/Registration-15.png"
+          src={specificEventState?.secondimage}
           alt=""
           className="m-4"
-          style={{ height: "50%" }}
+          style={{ height: "60%", width:"285px" }}
         />
-        <div className="m-2">
-          <p className="sub-heading ">Operational Fund Summit Luxembourg</p>
-          <p className="price black-bold-text my-3">£1,495.00 - £2,595.00</p>
+        <div className="mx-5 my-2">
+          <p className="sub-heading ">{specificEventState?.title}</p>
+          <p className="price black-bold-text my-3">
+            {specificEventState?.event_price}$
+          </p>
           <p className="semi-light-bold my-4">Delegate Pass</p>
           <p style={{ fontSize: "17px" }} className="my-2">
             Limited Partners
@@ -47,7 +52,7 @@ function Register() {
             General Partners / Service Providers
           </p>
 
-          <Table hover size="sm" className="my-4 table-responsive">
+          {/* <Table hover size="sm" className="my-4 table-responsive">
             <tbody className="table-body">
               <tr>
                 <td>
@@ -67,7 +72,7 @@ function Register() {
                 </td>
               </tr>
             </tbody>
-          </Table>
+          </Table> */}
 
           <button className="addToCartBtn mb-5">Add to cart</button>
           <span className="gray-color my-2">Category: Europe 2023</span>

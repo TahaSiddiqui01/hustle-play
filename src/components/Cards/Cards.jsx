@@ -19,7 +19,7 @@ function Cards(props) {
     <>
       <div className="card-container mx-2 my-5">
         <div className="card-head">
-          <img className="card-img" width={328} src={props?.elem?.main_image} alt="image" />
+          <img className="card-img" style={{height:"200px"}} src={props?.elem?.main_image} alt="image" />
           <button className="image-badg-btn">{props?.elem?.event_date?.split("T")[0]}</button>
         </div>
         <p className="small-sub-heading">9th Annual Private Debt London</p>

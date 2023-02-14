@@ -3,19 +3,20 @@ import Navbar from "react-bootstrap/Navbar";
 import Logo from "../../assets/hutleplaylogo.webp";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Navbar.css";
 
 function NavbarCompo() {
   let location = useLocation();
   let Navigate = useNavigate();
   console.log("location: ", location?.pathname);
+  const {id} = useParams()
 
   return (
     <>
       <Navbar
         className={`${
-          location.pathname === "/" || location.pathname === "/event:id"
+          location.pathname === "/" || location.pathname === `/event/${id}`
             ? "home-nav"
             : "nav"
         }`}
@@ -30,7 +31,7 @@ function NavbarCompo() {
           <Nav className="ms-auto">
             <Nav.Link
               className={`${
-                location.pathname === "/" || location.pathname === "/event/:id"
+                location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
                   : "nav-link"
               }`}
@@ -40,7 +41,7 @@ function NavbarCompo() {
             </Nav.Link>
             <Nav.Link
               className={`${
-                location.pathname === "/" || location.pathname === "/event:id"
+                location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
                   : "nav-link"
               }`}
@@ -50,7 +51,7 @@ function NavbarCompo() {
             </Nav.Link>
             <Nav.Link
               className={`${
-                location.pathname === "/" || location.pathname === "/event:id"
+                location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
                   : "nav-link"
               }`}
@@ -60,7 +61,7 @@ function NavbarCompo() {
             </Nav.Link>
             <Nav.Link
               className={`${
-                location.pathname === "/" || location.pathname === "/event:id"
+                location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
                   : "nav-link"
               }`}

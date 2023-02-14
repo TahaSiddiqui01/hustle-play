@@ -17,8 +17,20 @@
 }
 
 .sponsorcardleft {
-  width: 40%;
-  min-width: 320px;
+  width: 20%;
+  min-width: 250px;
+}
+
+.sponsorCardImage{
+  width: 100%;
+}
+
+
+.sponsorcard-right{
+  width: 80%;
+  align-self: self-start;
+  box-sizing: border-box;
+  margin: 0px 22px;
 }
 
 @media screen and (max-width: 1000px) {
