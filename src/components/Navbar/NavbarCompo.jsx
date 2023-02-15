@@ -9,7 +9,6 @@ import "./Navbar.css";
 function NavbarCompo() {
   let location = useLocation();
   let Navigate = useNavigate();
-  console.log("location: ", location?.pathname);
   const {id} = useParams()
 
   return (

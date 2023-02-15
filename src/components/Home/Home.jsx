@@ -26,7 +26,7 @@ import { useInterval } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BASE_URL = "http://nofi.pythonanywhere.com/";
+const BASE_URL = "http://nofi.pythonanywhere.com";
 
 
 function Home() {
@@ -64,7 +64,7 @@ function Home() {
 
   const getAllEvents = () => {
     try {
-      fetch("http://nofi.pythonanywhere.com")
+      fetch(BASE_URL)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -74,6 +74,8 @@ function Home() {
       console.log(error);
     }
   };
+
+
 
   useEffect(() => {
     getAllEvents();

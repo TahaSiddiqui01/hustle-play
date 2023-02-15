@@ -7,11 +7,15 @@ import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import CountUp from "react-countup";
 const BASE_URL = "http://nofi.pythonanywhere.com";
 
 function Event() {
   const [modalShow, setModalShow] = React.useState(false);
   const [eventDetail, setEventDetail] = useState({});
+  const [time, setTime] = useState("");
+  const [formattedTime, setFormattedTime] = useState({});
+  const [counterData, setCounterData] = useState([]);
 
   const { id } = useParams();
 
@@ -23,6 +27,46 @@ function Event() {
 
       console.log("EventData", response?.data);
       setAllEventData(response?.data);
+      setTime(response?.data?.event_date);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getTimeRemaining = (endtime) => {
+    const total = Date.parse(endtime) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    return {
+      total,
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  };
+
+  if (time) {
+    setInterval(() => {
+      const remainingTime = getTimeRemaining(time);
+      // console.log("remainingTime: ", remainingTime);
+
+      setFormattedTime({
+        days: remainingTime.days,
+        hours: remainingTime.hours,
+        minutes: remainingTime.minutes,
+        seconds: remainingTime.seconds,
+      });
+    }, 1000);
+  }
+
+  const getCounter = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/counter-items/${id}`);
+      console.log("Counter: ", response);
+      setCounterData(response?.data);
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +74,7 @@ function Event() {
 
   useEffect(() => {
     fetchData();
+    getCounter();
   }, []);
 
   return (
@@ -61,7 +106,7 @@ function Event() {
             alt=""
             height={450}
             width={450}
-            style={{borderRadius:"16px"}}
+            style={{ borderRadius: "16px" }}
             className="mx-5 my-2 event-image"
           />
 
@@ -80,16 +125,18 @@ function Event() {
             </div>
             <div className="d-flex justify-content-center align-items-center">
               <span className="time-bold">
-                109 <span className="time-light">Days</span>
+                {formattedTime?.days} <span className="time-light">Days</span>
               </span>
               <span className="time-bold">
-                20 <span className="time-light">Hours</span>
+                {formattedTime?.hours} <span className="time-light">Hours</span>
               </span>
               <span className="time-bold">
-                13 <span className="time-light">Minutes</span>
+                {formattedTime?.minutes}{" "}
+                <span className="time-light">Minutes</span>
               </span>
               <span className="time-bold">
-                16 <span className="time-light">Seconds</span>
+                {formattedTime?.seconds}{" "}
+                <span className="time-light">Seconds</span>
               </span>
             </div>
             <button className="register-btn mx-auto my-5">Register Now</button>
@@ -104,22 +151,18 @@ function Event() {
       <section className="mt-5">
         <div className="d-flex no-parent-2 flex-wrap justify-content-around align-items-center px-5 py-2 no-parent">
           {/* <Container className="d-flex no-parent-2 flex-wrap justify-content-between align-items-center"> */}
-          <div className="event-no-div">
-            <span>3,000+</span>
-            <span>Atendees</span>
-          </div>
-          <div className="event-no-div">
-            <span>400+</span>
-            <span>Speakers</span>
-          </div>
-          <div className="event-no-div">
-            <span>15+</span>
-            <span>Events</span>
-          </div>
-          <div className="event-no-div">
-            <span>1</span>
-            <span>Organiser</span>
-          </div>
+
+          {counterData?.map((elem) => {
+            return (
+              <div className="event-no-div">
+                <span>
+                  <CountUp decimal="," end={elem?.counter} duration={2} />+
+                </span>
+                <span>{elem?.name}</span>
+              </div>
+            );
+          })}
+
           {/* </Container> */}
         </div>
       </section>

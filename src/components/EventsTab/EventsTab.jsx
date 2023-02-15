@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from "@chakra-ui/react";
 import { Container } from "react-bootstrap";
 import "./EventsTab.css";
@@ -14,6 +14,14 @@ import { MdLocationOn } from "react-icons/md";
 
 function EventsTab(props) {
   const allData = ["a", "b", "b", "b", "b", "b", "b", "b", "b"];
+
+  useEffect(() => {
+    
+    console.log("eventData: ", props?.eventData)
+
+  }, [])
+  
+
 
   return (
     <Container>
