@@ -16,12 +16,8 @@ function EventsTab(props) {
   const allData = ["a", "b", "b", "b", "b", "b", "b", "b", "b"];
 
   useEffect(() => {
-    
-    console.log("eventData: ", props?.eventData)
-
-  }, [])
-  
-
+    console.log("eventData2: ", props);
+  }, []);
 
   return (
     <Container>
@@ -86,9 +82,10 @@ function EventsTab(props) {
             </div>
           </TabPanel>
           <TabPanel>
-            {props?.eventData?.sponsors?.map((elem) => {
+            {/* {props?.eventData?.sponsors?.map((elem) => {
               return <Sponsor elem={elem} />;
-            })}
+            })} */}
+            <Sponsor elem={props?.eventData?.sponsors} />
           </TabPanel>
           <TabPanel>
             <Register />

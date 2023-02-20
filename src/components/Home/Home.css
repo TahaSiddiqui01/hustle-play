@@ -10,11 +10,12 @@
 
 .view-all-btn {
   border-radius: 12px;
-  font-size: 22px;
-  padding: 18px 24px;
+  font-size: 18px;
+  padding: 15px 28px;
   border: none;
   margin: 8px;
   background-color: #1e73be;
+  color: white ;
 }
 .swiper-slide {
   display: flex;

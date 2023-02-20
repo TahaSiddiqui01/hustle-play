@@ -7,6 +7,7 @@ import Event from "./components/Event/Event";
 import AllEvents from "./components/AllEvents/AllEvents";
 import Gallery from "./components/Gallery/Gallery";
 import Contact from "./components/Contact/Contact";
+import User from "./components/User/User";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/all-events" element={<AllEvents />}></Route>
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/user/:id" element={<User />}></Route>
         </Routes>
       </Router>
     </>

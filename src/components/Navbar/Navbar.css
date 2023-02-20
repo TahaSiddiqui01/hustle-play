@@ -1,20 +1,20 @@
-.nav-link {
+.nav-link-custom {
   font-size: 20px;
   color: white !important;
 }
 .navbar-toggler {
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
   background-color: white !important;
   border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: box-shadow .15s ease-in-out;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
 }
 
-.text-heading{
-    font-size: 3.2rem;
-    font-weight: bold;
+.text-heading {
+  font-size: 3.2rem;
+  font-weight: bold;
 }
 
 .img-div {
@@ -34,15 +34,15 @@
 .nav-btn {
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
-    border: none;
-    border-radius: 8rem;
-    padding: 8px 4rem;
-    font-size: 24px;
-    transition: 0.6s all ease;
+  border: none;
+  border-radius: 8rem;
+  padding: 8px 4rem;
+  font-size: 24px;
+  transition: 0.6s all ease;
 }
 
-.nav-btn:hover{
-    border-radius: 12px !important;
+.nav-btn:hover {
+  border-radius: 12px !important;
 }
 
 .clr-white {
@@ -54,69 +54,66 @@
   justify-content: space-evenly;
 }
 
-.text-paragraph{
+.text-paragraph {
   width: 84%;
 }
 
-
-#logo{
+#logo {
   width: 120px;
 }
 
-.home-nav{
+.home-nav {
   background: none;
   color: white;
 }
-.nav{
+.nav {
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 5px 2px 8px 2px;
   padding: 22px 36px;
   color: black !important;
 }
-.nav-link{
+.nav-link {
   color: black !important;
   font-size: 18px;
 }
-.home-nav-link{
+.home-nav-link {
   color: white !important;
 }
 
-.nav-link:hover{
+.nav-link-custom:hover {
   border-bottom: 2px solid;
   border-image: linear-gradient(45deg, purple, orange) 1;
 }
-.home-nav-link:hover{
-  border-bottom: 2px solid white;
+.home-nav-link:hover {
+  border-bottom: 2px solid white !important;
   /* border-image: linear-gradient(45deg, purple, orange) 1; */
 }
 
 @media screen and (max-width: 730px) {
-    
-    .text-heading{
-        font-size: 28px;
-    }
+  .text-heading {
+    font-size: 28px;
+  }
 
-    .text-paragraph{
-        font-size: 14px !important;
-    }
+  .text-paragraph {
+    font-size: 14px !important;
+  }
 
-    .nav-btn{
-        font-size: 16px;
-        padding: 4px 18px;
-    }
-
+  .nav-btn {
+    font-size: 16px;
+    padding: 4px 18px;
+  }
 }
 
-@media screen and (max-width:380px) {
-  .text-heading{
+@media screen and (max-width: 380px) {
+  .text-heading {
     font-size: 22px;
   }
 
-  .nav-btn{
+  .nav-btn {
     font-size: 12px;
   }
 
-  .img-div{
+  .img-div {
     padding: 18px 10px !important;
   }
 }

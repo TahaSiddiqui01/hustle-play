@@ -32,7 +32,7 @@ function NavbarCompo() {
               className={`${
                 location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
-                  : "nav-link"
+                  : "nav-link-custom"
               }`}
               onClick={() => Navigate("/")}
             >
@@ -42,7 +42,7 @@ function NavbarCompo() {
               className={`${
                 location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
-                  : "nav-link"
+                  : "nav-link-custom"
               }`}
               onClick={() => Navigate("/all-events")}
             >
@@ -52,7 +52,7 @@ function NavbarCompo() {
               className={`${
                 location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
-                  : "nav-link"
+                  : "nav-link-custom"
               }`}
               onClick={() => Navigate("/gallery")}
             >
@@ -62,7 +62,7 @@ function NavbarCompo() {
               className={`${
                 location.pathname === "/" || location.pathname === `/event/${id}`
                   ? "home-nav-link"
-                  : "nav-link"
+                  : "nav-link-custom"
               }`}
               onClick={() => Navigate("/contact")}
             >

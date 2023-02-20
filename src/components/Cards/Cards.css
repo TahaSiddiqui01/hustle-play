@@ -2,10 +2,10 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 15px 5px;
   border-radius: 16px;
-  max-width: 367px;
+  max-width: 350px;
   width: 100%;
   padding: 19px;
-  min-width: 280px;
+  height: fit-content !important;
 }
 
 .image-badg-btn {
@@ -16,7 +16,7 @@
   border-radius: 20px;
   display: inline-block;
   margin: 10px 0px 15px 10px;
-  box-shadow: 0px 5px 10px rgb(0 0 0 / 30%);
+  box-shadow: 0px 5px 10px rgba(202, 9, 9, 0.3);
   top: -52px;
   left: 2px;
   border: none;

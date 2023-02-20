@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import CountUp from "react-countup";
+import { useNavigate } from "react-router-dom";
 const BASE_URL = "http://nofi.pythonanywhere.com";
 
 function Event() {
@@ -16,6 +17,8 @@ function Event() {
   const [time, setTime] = useState("");
   const [formattedTime, setFormattedTime] = useState({});
   const [counterData, setCounterData] = useState([]);
+  const [isEventExist, setIsEventExist] = useState(true);
+  let Navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -53,12 +56,27 @@ function Event() {
       const remainingTime = getTimeRemaining(time);
       // console.log("remainingTime: ", remainingTime);
 
-      setFormattedTime({
-        days: remainingTime.days,
-        hours: remainingTime.hours,
-        minutes: remainingTime.minutes,
-        seconds: remainingTime.seconds,
-      });
+      if (
+        remainingTime.days < 0 ||
+        remainingTime.days < 0 ||
+        remainingTime.days < 0 ||
+        remainingTime.days < 0
+      ) {
+        setFormattedTime({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
+        setIsEventExist(false);
+      } else {
+        setFormattedTime({
+          days: remainingTime.days,
+          hours: remainingTime.hours,
+          minutes: remainingTime.minutes,
+          seconds: remainingTime.seconds,
+        });
+      }
     }, 1000);
   }
 
@@ -120,9 +138,17 @@ function Event() {
               developments and market trends. Now in its 9
             </p> */}
             <p className="gray-text">{allEventData?.description}</p>
-            <div className="gray-text-bold text-center my-4">
-              Conference will sart in
-            </div>
+
+            {isEventExist ? (
+              <div className="gray-text-bold text-center my-4">
+                Conference will start in
+              </div>
+            ) : (
+              <div className="gray-text-bold text-center my-4">
+                Conference timed out
+              </div>
+            )}
+
             <div className="d-flex justify-content-center align-items-center">
               <span className="time-bold">
                 {formattedTime?.days} <span className="time-light">Days</span>
@@ -139,7 +165,12 @@ function Event() {
                 <span className="time-light">Seconds</span>
               </span>
             </div>
-            <button className="register-btn mx-auto my-5">Register Now</button>
+            <button
+              onClick={() => Navigate(`/user/${id}`)}
+              className="register-btn mx-auto my-5"
+            >
+              Register Now
+            </button>
           </div>
         </div>
       </section>
