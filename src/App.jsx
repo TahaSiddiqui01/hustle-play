@@ -8,6 +8,8 @@ import AllEvents from "./components/AllEvents/AllEvents";
 import Gallery from "./components/Gallery/Gallery";
 import Contact from "./components/Contact/Contact";
 import User from "./components/User/User";
+import Test from "./components/Test/TestCompo";
+import CheckOut from "./components/Test/TestCompo";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +25,8 @@ function App() {
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/user/:id" element={<User />}></Route>
+          {/* <Route path="/test" element={<Test />}></Route> */}
+          {/* <Route path="/test" element={<Test />}></Route> */}
         </Routes>
       </Router>
     </>

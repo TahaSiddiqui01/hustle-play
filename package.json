@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
+    "@stripe/react-stripe-js": "^1.16.4",
+    "@stripe/stripe-js": "^1.46.0",
     "axios": "^1.3.2",
     "bootstrap": "^5.2.3",
     "framer-motion": "^9.0.1",
@@ -25,6 +27,7 @@
     "react-toastify": "^9.1.1",
     "sass": "^1.58.0",
     "slick-carousel": "^1.8.1",
+    "stripe": "^8.158.0",
     "swiper": "^8.4.6"
   },
   "devDependencies": {

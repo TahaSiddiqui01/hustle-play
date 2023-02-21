@@ -7,7 +7,7 @@ function Sponsor(props) {
   const [filteredSponsor, setFilteredSponsor] = useState([]);
 
   useEffect(() => {
-    console.log("Sponsor Data: ", props?.elem);
+    // console.log("Sponsor Data: ", props?.elem);
 
     let data = [];
 
@@ -23,7 +23,7 @@ function Sponsor(props) {
     <>
       {filteredSponsor?.map((elem) => {
         return (
-          <div className="my-4">
+          <div className="sponsor-main">
             <p className="light-heading text-center mb-2">{elem[0]}</p>
             {elem[1]?.map((child) => {
               return (

@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavbarCompo from "../Navbar/NavbarCompo";
 import "./User.css";
 import Tilty from "react-tilty";
-import {useParams} from "react-router-dom"
+import { useParams } from "react-router-dom";
+import axios from "axios";
+const BASE_URL = "http://nofi.pythonanywhere.com";
+// import Stripe from "stripe";
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 
 function User() {
+  const [sessionId, setSessionId] = useState("");
+
+
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
@@ -12,11 +20,22 @@ function User() {
     NoOfPersons: "",
   });
 
-  const {id} = useParams()
-
+  const { id } = useParams();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      let obj = {
+        name: inputData?.name,
+        email: inputData?.email,
+        contact: parseInt(inputData?.contact),
+        number_of_persons: parseInt(inputData?.NoOfPersons),
+      };
+      let response = await axios.post(`${BASE_URL}/payment/${id}?t=12`, obj);
+      console.log("Response from backend Striped: ", response);
+      setSessionId(response?.data?.sessionId);
+      if (response?.data?.sessionId) {
+        // handleClick();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -29,7 +48,7 @@ function User() {
     <>
       <NavbarCompo />
 
-      <div style={{height:"90vh"}} className="d-flex align-items-center">
+      <div style={{ height: "90vh" }} className="d-flex align-items-center">
         <form
           onSubmit={handleSubmit}
           style={{ transform: "translateZ(30px)" }}

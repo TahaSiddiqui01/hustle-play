@@ -18,6 +18,7 @@ function Event() {
   const [formattedTime, setFormattedTime] = useState({});
   const [counterData, setCounterData] = useState([]);
   const [isEventExist, setIsEventExist] = useState(true);
+  const [sponsor, setSponsor] = useState([]);
   let Navigate = useNavigate();
 
   const { id } = useParams();
@@ -30,6 +31,16 @@ function Event() {
 
       console.log("EventData", response?.data);
       setAllEventData(response?.data);
+      let newArr = [];
+
+      for (let key of Object.keys(response?.data?.sponsors)) {
+        console.log("aaabbb: ", key);
+        newArr.push([key, response?.data?.sponsors[key]]);
+      }
+
+      setSponsor(newArr);
+      console.log("===> NewArr: ", newArr);
+
       setTime(response?.data?.event_date);
     } catch (error) {
       console.log(error);
@@ -239,7 +250,33 @@ function Event() {
         </div>
       </section>
 
-      <section>
+      {sponsor?.map((elem, index) => {
+        return (
+          <>
+            <section>
+              <Container className="text-center my-5 ">
+                <p className="sub-heading my-5">{elem[0]}</p>
+
+                <div className="d-flex justify-content-center align-items-center">
+                  {elem[1]?.map((elem) => {
+                    return (
+                      <div className="section-6-div m-2">
+                        <img
+                          width={120}
+                          src={`https://nofi.pythonanywhere.com/media/${elem?.image}`}
+                          alt="partner"
+                        ></img>
+                      </div>
+                    );
+                  })}
+                </div>
+              </Container>
+            </section>
+          </>
+        );
+      })}
+
+      {/* <section>
         <Container className="text-center my-5 ">
           <p className="sub-heading my-5">Co-Sponsors</p>
 
@@ -263,8 +300,9 @@ function Event() {
             </div>
           </div>
         </Container>
-      </section>
+      </section> */}
 
+      {/* 
       <section>
         <Container>
           <p className="sub-heading text-center my-5">Exhibitors</p>
@@ -297,7 +335,7 @@ function Event() {
             </div>
           </div>
         </Container>
-      </section>
+      </section> */}
 
       <section className="section-no-7">
         <Testimonials />
