@@ -5,9 +5,11 @@ import "./Register.css";
 import { Table } from "react-bootstrap";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const { id } = useParams();
+  let Navigate = useNavigate();
 
   const [specificEventState, setSpecificEventState] = useState({});
   const specificEvent = async () => {
@@ -34,7 +36,7 @@ function Register() {
           src={specificEventState?.secondimage}
           alt=""
           className="m-4"
-          style={{ height: "60%", width:"285px" }}
+          style={{ height: "60%", width: "285px" }}
         />
         <div className="mx-5 my-2">
           <p className="sub-heading ">{specificEventState?.title}</p>
@@ -74,7 +76,12 @@ function Register() {
             </tbody>
           </Table> */}
 
-          <button className="addToCartBtn mb-5">Add to cart</button>
+          <button
+            onClick={() => Navigate(`/user/${id}`)}
+            className="addToCartBtn mb-5"
+          >
+            Add to cart
+          </button>
           <span className="gray-color my-2">Category: Europe 2023</span>
           <span
             style={{ fontWeight: "bold", display: "block" }}

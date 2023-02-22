@@ -25,10 +25,13 @@
     "react-spinners": "^0.13.8",
     "react-tilty": "^3.0.0",
     "react-toastify": "^9.1.1",
+    "react-tsparticles": "^2.9.3",
     "sass": "^1.58.0",
     "slick-carousel": "^1.8.1",
     "stripe": "^8.158.0",
-    "swiper": "^8.4.6"
+    "sweetalert": "^2.1.2",
+    "swiper": "^8.4.6",
+    "tsparticles": "^2.9.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -10,6 +10,7 @@ import Contact from "./components/Contact/Contact";
 import User from "./components/User/User";
 import Test from "./components/Test/TestCompo";
 import CheckOut from "./components/Test/TestCompo";
+import PaymentSuccess from "./components/PaymentSuccess/PaymentSuccess";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/user/:id" element={<User />}></Route>
+          <Route path="/success" element={<PaymentSuccess />}></Route>
           {/* <Route path="/test" element={<Test />}></Route> */}
           {/* <Route path="/test" element={<Test />}></Route> */}
         </Routes>

@@ -15,7 +15,7 @@
   border: none;
   margin: 8px;
   background-color: #1e73be;
-  color: white ;
+  color: white;
 }
 .swiper-slide {
   display: flex;
@@ -68,6 +68,78 @@
 
 .section-6-div {
   border: 1px solid #ebebeb;
+}
+
+.custom_particles {
+  height: 5px;
+  width: 5px;
+  border-radius: 4rem;
+  display: block;
+  position: absolute;
+  background: linear-gradient(#e66465, #9198e5);
+  transition: all 1s;
+  animation: particles 10s ease-in-out 0s infinite reverse;
+  top: 100px;
+  z-index: 100;
+  right: 150px;
+  margin: 8px;
+  opacity: 40%;
+  display: none;
+}
+
+.custom_particles-1 {
+  margin: 35px;
+  right: 160px;
+}
+
+.custom_particles-2 {
+  margin: 45px;
+  right: 200px;
+}
+
+.custom_particles-3 {
+  margin: 35px;
+  right: 240px;
+}
+
+.custom_particles-4 {
+  margin: 45px;
+  right: 270px;
+}
+
+.custom_particles-5 {
+  margin: 35px;
+  right: 300px;
+}
+
+
+@keyframes particles {
+  0% {
+    top: 100px;
+    /* left: 250px; */
+  }
+  25% {
+    top: 125px;
+    /* left: 200px; */
+  }
+  50% {
+    top: 150px;
+    /* left: 200px; */
+  }
+  75% {
+    top: 100px;
+    /* left: 200px; */
+  }
+  100% {
+    top: 100px;
+    /* left: 200px; */
+  }
+}
+
+
+.particles {
+  position: relative;
+  background-color: black;
 }
 
 #blob {

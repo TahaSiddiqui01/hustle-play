@@ -21,9 +21,9 @@ function Event() {
   const [sponsor, setSponsor] = useState([]);
   let Navigate = useNavigate();
 
-  const { id } = useParams();
-
   const [allEventData, setAllEventData] = useState({});
+
+  const { id } = useParams();
 
   const fetchData = async () => {
     try {
@@ -119,7 +119,9 @@ function Event() {
           >
             {allEventData?.subtitle}{" "}
           </p>
-          <button className="nav-btn">View Upcoming Conference</button>
+          <button onClick={() => Navigate("/all-events")} className="nav-btn">
+            View Upcoming Conference
+          </button>
         </div>
       </div>
 

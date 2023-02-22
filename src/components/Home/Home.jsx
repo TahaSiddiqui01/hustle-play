@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import CountUp from "react-countup";
+import { Particles } from "react-tsparticles";
 
 SwiperCore.use([Autoplay]);
 
@@ -29,7 +30,109 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 const BASE_URL = "http://nofi.pythonanywhere.com";
 
+// const particlesConfig = {
+//   fpsLimit: 60,
+//   particles: {
+//     number: {
+//       value: 80,
+//       density: {
+//         enable: true,
+//         value_area: 800,
+//       },
+//     },
+//     color: {
+//       value: "#343a4",
+//     },
+//     shape: {
+//       type: "circle",
+//       stroke: {
+//         width: 0,
+//         color: "#000000",
+//       },
+//       polygon: {
+//         nb_sides: 5,
+//       },
+//       image: {
+//         src: "img/github.svg",
+//         width: 100,
+//         height: 100,
+//       },
+//     },
+//     opacity: {
+//       value: 0.5,
+//       random: false,
+//       anim: {
+//         enable: false,
+//         speed: 1,
+//         opacity_min: 0.1,
+//         sync: false,
+//       },
+//     },
+//     size: {
+//       value: 5,
+//       random: true,
+//       anim: {
+//         enable: false,
+//         speed: 40,
+//         size_min: 0.1,
+//         sync: false,
+//       },
+//     },
+//     line_linked: {
+//       enable: true,
+//       distance: 150,
+//       color: "#343a4",
+//       opacity: 0.4,
+//       width: 1,
+//     },
+//     move: {
+//       enable: true,
+//       speed: 6,
+//       direction: "none",
+//       random: false,
+//       straight: false,
+//       out_mode: "out",
+//       bounce: false,
+//       attract: {
+//         enable: false,
+//         rotateX: 600,
+//         rotateY: 1200,
+//       },
+//     },
+//   },
+//   interactivity: {
+//     detect_on: "canvas",
+//     events: {
+//       onhover: {
+//         enable: false,
+//       },
+//       onclick: {
+//         enable: false,
+//       },
+//       resize: true,
+//     },
+//   },
+//   detectRetina: true,
+// };
+
 function Home() {
+  const handleMouseMove = (e) => {
+    // console.log(e.target)
+    let availableSpan = document.getElementsByClassName("custom_particles");
+
+    for (let span of availableSpan) {
+      span.style.display = "block";
+    }
+
+    // if (availableSpan.length <= 10) {
+    //   let randNo = Math.random() * 100;
+    //   let span = document.createElement("span");
+    //   span.className = "custom_particles";
+    //   span.style.top = `${e.clientY - randNo}px`;
+    //   span.style.left = `${e.clientX - randNo}px`;
+    //   document.body.appendChild(span);
+    // }
+  };
   const [list, setList] = useState(clientsData);
   const [isLoading, setIsLoading] = useState(true);
   let Navigate = useNavigate();
@@ -81,12 +184,20 @@ function Home() {
     getAllEvents();
   }, []);
 
+  const disableSpans = () => {
+    let availableSpan = document.getElementsByClassName("custom_particles");
+
+    for (let span of availableSpan) {
+      span.style.display = "none";
+    }
+  };
+
   return (
     <>
       {isLoading ? (
         <div
           className="d-flex justify-content-center align-items-center"
-          style={{height: "100vh", width: "100%" }}
+          style={{ height: "100vh", width: "100%" }}
         >
           <ScaleLoader
             color="#1e73be"
@@ -100,8 +211,20 @@ function Home() {
         </div>
       ) : (
         <>
-          <div className=" container-fluid  img-div py-4 px-5">
+          <div
+            onMouseMove={handleMouseMove}
+            onMouseOut={disableSpans}
+            className=" container-fluid  img-div py-4 px-5"
+          >
             <NavbarCompo />
+
+            <div className="particles">
+              <span className="custom_particles custom_particles-1"></span>
+              <span className="custom_particles custom_particles-2"></span>
+              <span className="custom_particles custom_particles-3"></span>
+              <span className="custom_particles custom_particles-4"></span>
+              <span className="custom_particles custom_particles-5"></span>
+            </div>
 
             <div
               style={{ zIndex: "-1" }}
@@ -116,11 +239,33 @@ function Home() {
                 Private Debt & Equity Markets. Our conferences brings together
                 senior level decision makers to drive the industry forward.{" "}
               </p>
-              <button className="nav-btn">View Upcoming Conference</button>
+              <button
+                onClick={() => Navigate("/all-events")}
+                className="nav-btn"
+              >
+                View Upcoming Conference
+              </button>
             </div>
 
             <div id="blob"></div>
           </div>
+
+          {/* <div
+            style={{ border: "1px solid black", height: "300px" }}
+            className="App"
+            onMouseMove={handleMouseMove}
+          > */}
+          {/* <Particles
+              options={particlesConfig}
+              init={(particles) => (particlesRef.current = particles)}
+            /> */}
+
+          {/* <span className="custom_particles custom_particles-1"></span>
+            <span className="custom_particles custom_particles-2"></span>
+            <span className="custom_particles custom_particles-3"></span>
+            <span className="custom_particles custom_particles-4"></span>
+            <span className="custom_particles custom_particles-5"></span>
+          </div> */}
 
           <div className="d-flex justify-content-center">
             <Container className="my-5 ">

@@ -2,16 +2,39 @@ import React, { useState, useEffect } from "react";
 import NavbarCompo from "../Navbar/NavbarCompo";
 import "./User.css";
 import Tilty from "react-tilty";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 const BASE_URL = "http://nofi.pythonanywhere.com";
 // import Stripe from "stripe";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
+import { useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 function User() {
-  const [sessionId, setSessionId] = useState("");
+  const { id } = useParams();
+  const [eventdata, setEventdata] = useState({});
 
+  const fetchData = async () => {
+    try {
+      let response = await axios.get(`${BASE_URL}/event-detail/${id}`);
+
+      console.log("EventData2 on the other page: ", response?.data);
+      setEventdata(response?.data);
+      // setAllEventData(response?.data);
+      let newArr = [];
+
+      for (let key of Object.keys(response?.data?.sponsors)) {
+        console.log("aaabbb: ", key);
+        newArr.push([key, response?.data?.sponsors[key]]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const [sessionId, setSessionId] = useState("");
 
   const [inputData, setInputData] = useState({
     name: "",
@@ -20,21 +43,35 @@ function User() {
     NoOfPersons: "",
   });
 
-  const { id } = useParams();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+
+      if (
+        !inputData?.name ||
+        !inputData?.email ||
+        !inputData?.contact ||
+        !inputData?.NoOfPersons
+      ) {
+        return swal("No fields can't be empty", "", "error");
+      }
+
       let obj = {
         name: inputData?.name,
         email: inputData?.email,
         contact: parseInt(inputData?.contact),
         number_of_persons: parseInt(inputData?.NoOfPersons),
       };
-      let response = await axios.post(`${BASE_URL}/payment/${id}?t=12`, obj);
+      let response = await axios.post(
+        `${BASE_URL}/payment/${id}?t=${
+          eventdata?.event_price * parseInt(inputData?.NoOfPersons)
+        }`,
+        obj
+      );
       console.log("Response from backend Striped: ", response);
       setSessionId(response?.data?.sessionId);
-      if (response?.data?.sessionId) {
-        // handleClick();
+      if (response?.data?.stripe_url) {
+        window.location = response?.data?.stripe_url;
       }
     } catch (error) {
       console.log(error);
@@ -54,6 +91,8 @@ function User() {
           style={{ transform: "translateZ(30px)" }}
           className="user-form mx-auto  d-flex justify-content-center align-items-center flex-column"
         >
+          <p className="small-sub-heading">{eventdata?.title}</p>
+
           <label className="align-self-start user-label">Name</label>
           <input
             onChange={handleChange}
