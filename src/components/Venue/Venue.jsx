@@ -1,26 +1,35 @@
 import React from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import "./Venue.css";
+import { GoogleMap } from "@react-google-maps/api";
 
 function Venue(props) {
   return (
     <>
       <div className="d-flex justify-content-centera align-items-center flex-column my-5">
         <HiLocationMarker className="location-icon my-2" />
-        <p className=" my-2" style={{fontWeight:"bold"}}>{props?.locationHeader}</p>
-        <p style={{fontSize:"17px"}} className="text-center my-2">{props?.locationDetail}</p>
+        <p className=" my-2" style={{ fontWeight: "bold" }}>
+          {props?.locationHeader}
+        </p>
+        <p style={{ fontSize: "17px" }} className="text-center my-2">
+          {props?.locationDetail}
+        </p>
       </div>
-
+      {/* 
       <div class="wpb_map_wraper">
+        <GoogleMap location={props?.locationDetail?.split(" ")?.join("+")} />
+      </div> */}
+
+      <div className="wpb_map_wraper">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.5917145785875!2d-0.13056983559767693!3d51.50985069415658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487605490157e0e3%3A0xd97f513bf2127b73!2sThe%20Londoner%20Hotel!5e0!3m2!1sen!2sae!4v1674124807688!5m2!1sen!2sae"
           width="600"
           height="450"
-          // style="border: 0px; pointer-events: none;"
-          style={{ border: "0px", pointerEvents: "none", width: "100%" }}
-          allowfullscreen=""
+          style={{ border: "0px", width:"100%" }}
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyC6DmdzyagP97ONyCdgXZJf2vXNAYixIbQ
+    &q=${props?.locationDetail?.split(" ")?.join("+")}`}
         ></iframe>
       </div>
     </>
