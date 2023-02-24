@@ -28,9 +28,6 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/user/:id" element={<User />}></Route>
           <Route path="/success" element={<PaymentSuccess />}></Route>
-          <Route path="/map" element={<GoogleMap />}></Route>
-          {/* <Route path="/test" element={<Test />}></Route> */}
-          {/* <Route path="/test" element={<Test />}></Route> */}
         </Routes>
       </Router>
     </>
