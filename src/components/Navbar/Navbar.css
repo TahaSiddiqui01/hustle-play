@@ -2,6 +2,7 @@
   font-size: 20px;
   color: white !important;
 }
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
@@ -66,16 +67,19 @@
   background: none;
   color: white;
 }
+
 .nav {
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 5px 2px 8px 2px;
   padding: 22px 36px;
   color: black !important;
 }
+
 .nav-link {
   color: black !important;
   font-size: 18px;
 }
+
 .home-nav-link {
   color: white !important;
 }
@@ -84,9 +88,33 @@
   border-bottom: 2px solid;
   border-image: linear-gradient(45deg, purple, orange) 1;
 }
+
 .home-nav-link:hover {
   border-bottom: 2px solid white !important;
   /* border-image: linear-gradient(45deg, purple, orange) 1; */
+}
+
+#tsparticles,
+.tsp2 {
+  position: absolute;
+  height: 385px;
+  width: 93%;
+  background: none !important;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  #tsparticles,
+  .tsp2 {
+    width: 85%;
+    height: 300px;
+  }
+
+  .img-div {
+
+    min-height: 400px !important;
+  }
 }
 
 @media screen and (max-width: 730px) {
@@ -102,6 +130,7 @@
     font-size: 16px;
     padding: 4px 18px;
   }
+
 }
 
 @media screen and (max-width: 380px) {
