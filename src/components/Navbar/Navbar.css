@@ -111,6 +111,11 @@
     height: 300px;
   }
 
+  .tsp2{
+    position:fixed !important;
+    top: 50px;
+  }
+
   .img-div {
 
     min-height: 400px !important;
