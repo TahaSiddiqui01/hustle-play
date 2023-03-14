@@ -13,7 +13,8 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-const BASE_URL = "http://nofi.pythonanywhere.com";
+const BASE_URL = "http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com";
+// const BASE_URL = "http://nofi.pythonanywhere.com";
 
 function Event() {
 

@@ -5,7 +5,8 @@ import Footer from "../Footer/Footer";
 import { FiSearch } from "react-icons/fi";
 import ImageViewer from "../ImageViewer/ImageViewer";
 import axios from "axios";
-const BASE_URL = "http://nofi.pythonanywhere.com";
+const BASE_URL = "http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com";
+// const BASE_URL = "http://nofi.pythonanywhere.com";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 function Gallery() {

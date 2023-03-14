@@ -15,7 +15,7 @@ function Register() {
   const specificEvent = async () => {
     try {
       let response = await axios.get(
-        `http://nofi.pythonanywhere.com/event-detail/${id}`
+        `http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com/event-detail/${id}`
       );
 
       console.log("This is response: ", response?.data);

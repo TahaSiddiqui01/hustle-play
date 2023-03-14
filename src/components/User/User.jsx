@@ -3,7 +3,9 @@ import NavbarCompo from "../Navbar/NavbarCompo";
 import "./User.css";
 import Tilty from "react-tilty";
 import axios from "axios";
-const BASE_URL = "http://nofi.pythonanywhere.com";
+const BASE_URL =
+  "http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com";
+// const BASE_URL = "http://nofi.pythonanywhere.com";
 // import Stripe from "stripe";
 import { useParams } from "react-router-dom";
 import swal from "sweetalert";

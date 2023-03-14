@@ -9,7 +9,8 @@ import Footer from "../Footer/Footer";
 import axios from "axios";
 import DotLoader from "react-spinners/DotLoader";
 
-const BASE_URL = "https://b564-39-37-167-10.in.ngrok.io/";
+const BASE_URL = "http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com/";
+// const BASE_URL = "https://b564-39-37-167-10.in.ngrok.io/";
 
 function AllEvents() {
   const [allEvents, setAllEvents] = useState([]);
@@ -33,7 +34,7 @@ function AllEvents() {
 
   const getAllEvents = () => {
     try {
-      fetch("http://nofi.pythonanywhere.com")
+      fetch("http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavbarCompo from "../Navbar/NavbarCompo";
 import "./Contact.css";
 import axios from "axios";
-const BASE_URL = "http://nofi.pythonanywhere.com";
+const BASE_URL = "http://ec2-52-198-151-181.ap-northeast-1.compute.amazonaws.com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
