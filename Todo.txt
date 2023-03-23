@@ -1,0 +1,5 @@
+TODO: Solve the border issue when hover the tab on the Navbar  ===> Done
+
+TODO: Logo animation
+
+TODO: Make the static values dynamic.

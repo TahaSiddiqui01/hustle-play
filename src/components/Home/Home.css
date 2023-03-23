@@ -112,6 +112,18 @@
   right: 300px;
 }
 
+.home-nav-link:after {
+  transition: all ease-in-out 0.2s;
+  background: none repeat scroll 0 0 #ffffff;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+}
+
+.menu-text:hover:after {
+  width: 100%;
+}
 
 @keyframes particles {
   0% {
@@ -135,7 +147,6 @@
     /* left: 200px; */
   }
 }
-
 
 .particles {
   position: relative;

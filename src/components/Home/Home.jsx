@@ -113,6 +113,9 @@ function Home() {
     }
   };
 
+
+  
+
   useEffect(() => {
     getAllEvents();
   }, []);
@@ -124,6 +127,8 @@ function Home() {
       span.style.display = "none";
     }
   };
+
+
 
   return (
     <>

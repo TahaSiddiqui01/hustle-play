@@ -2,15 +2,15 @@ import { useState } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar/NavbarCompo";
 import NavbarCompo from "./components/Navbar/NavbarCompo";
-import Home from "./components/Home/Home";
-import Event from "./components/Event/Event";
-import AllEvents from "./components/AllEvents/AllEvents";
+import Home from "./components/Home/Home.jsx";
+import Event from "./components/Event/Event.jsx";
+import AllEvents from "./components/AllEvents/AllEvents.jsx";
 import Gallery from "./components/Gallery/Gallery";
-import Contact from "./components/Contact/Contact";
-import User from "./components/User/User";
+import Contact from "./components/Contact/Contact.jsx";
+import User from "./components/User/User.jsx";
 import Test from "./components/Test/TestCompo";
 import CheckOut from "./components/Test/TestCompo";
-import PaymentSuccess from "./components/PaymentSuccess/PaymentSuccess";
+import PaymentSuccess from "./components/PaymentSuccess/PaymentSuccess.jsx";
 import GoogleMap from "./components/GoogleMap/GoogleMap";
 
 function App() {
